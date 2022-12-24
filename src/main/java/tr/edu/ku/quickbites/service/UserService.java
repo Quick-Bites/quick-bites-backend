@@ -46,7 +46,7 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found!");
         }
 
-        log.error("User {} found in the database.", username);
+        log.info("User {} found in the database.", username);
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
         user.getRoles().forEach(role -> {
@@ -59,6 +59,8 @@ public class UserService implements UserDetailsService {
     public User saveUser(User user) {
         log.info("Saving user {} to the database.", user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        Role role = roleRepository.findByName("ROLE_USER");
+        user.getRoles().add(role);
         return userRepository.save(user);
     }
 
