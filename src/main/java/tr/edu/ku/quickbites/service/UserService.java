@@ -60,7 +60,7 @@ public class UserService implements UserDetailsService {
         log.info("Saving user {} to the database.", user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Role role = roleRepository.findByName("ROLE_USER");
-        user.getRoles().add(role);
+        user.setRoles(List.of(role));
         return userRepository.save(user);
     }
 
@@ -69,7 +69,7 @@ public class UserService implements UserDetailsService {
         return roleRepository.save(role);
     }
 
-    public void addRoleToUser(String username, String roleName) {
+    public void addRoleToUser(String username, String roleName) {dd
         log.info("Adding role {} to user {}.", username, roleName);
         User user = userRepository.findByUsername(username);
         Role role = roleRepository.findByName(roleName);
