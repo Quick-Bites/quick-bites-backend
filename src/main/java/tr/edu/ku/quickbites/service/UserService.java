@@ -69,7 +69,7 @@ public class UserService implements UserDetailsService {
         return roleRepository.save(role);
     }
 
-    public void addRoleToUser(String username, String roleName) {dd
+    public void addRoleToUser(String username, String roleName) {
         log.info("Adding role {} to user {}.", username, roleName);
         User user = userRepository.findByUsername(username);
         Role role = roleRepository.findByName(roleName);
