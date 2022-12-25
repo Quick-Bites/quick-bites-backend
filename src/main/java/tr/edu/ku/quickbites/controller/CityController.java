@@ -14,10 +14,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CityController {
     @GetMapping("/cities")
-    public ResponseEntity<CityResponse> getUsers() {
+    public ResponseEntity<List<CityResponse>> getUsers() {
         return ResponseEntity.ok()
-                .body(CityResponse.builder()
-                .cities(List.of("Istanbul", "Izmir", "Ankara"))
-                .build());
+                .body(List.of(CityResponse.builder().name("Istanbul").build(), CityResponse.builder().name("Izmir").build(), CityResponse.builder().name("Ankara").build()));
     }
 }

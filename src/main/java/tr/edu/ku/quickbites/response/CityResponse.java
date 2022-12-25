@@ -9,5 +9,5 @@ import java.util.List;
 @Data
 @Builder
 public class CityResponse {
-    private List<String> cities;
+    private String name;
 }
