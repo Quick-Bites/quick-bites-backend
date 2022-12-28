@@ -48,4 +48,9 @@ public class UserController {
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         userService.refreshToken(request, response);
     }
+
+    @GetMapping("/user/details/{username}")
+    public ResponseEntity<User> getUserDetails(@PathVariable String username) {
+        return ResponseEntity.ok().body(userService.getUser(username));
+    }
 }

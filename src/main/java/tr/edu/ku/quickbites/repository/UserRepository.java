@@ -5,5 +5,4 @@ import tr.edu.ku.quickbites.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
-
 }
