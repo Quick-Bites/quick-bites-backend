@@ -19,7 +19,16 @@ public class RestaurantController {
 
     @GetMapping("/restaurant/categories")
     public ResponseEntity<List<CategoryResponse>> getCategories() {
-        return ResponseEntity.ok().body(List.of(CategoryResponse.builder().category("Burger").build(), CategoryResponse.builder().category("Pizza").build(), CategoryResponse.builder().category("Sushi").build()));
+        return ResponseEntity.ok().body(List.of(
+                CategoryResponse.builder()
+                        .name("Burger")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Pizza")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Sushi")
+                        .build()));
     }
 
     @GetMapping("/restaurant/located-city/{city}")
