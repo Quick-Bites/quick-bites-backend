@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 public class ReservationDto {
-    private String username;
     private Long restaurantId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;

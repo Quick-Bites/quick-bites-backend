@@ -7,6 +7,7 @@ import tr.edu.ku.quickbites.dto.ReservationDto;
 import tr.edu.ku.quickbites.dto.RestaurantNameDto;
 import tr.edu.ku.quickbites.entity.Restaurant;
 import tr.edu.ku.quickbites.response.CategoryResponse;
+import tr.edu.ku.quickbites.response.ReservationResponse;
 import tr.edu.ku.quickbites.service.RestaurantService;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public class RestaurantController {
     }
 
     @PostMapping("/restaurant/make-reservation")
-    public ResponseEntity<?> makeReservation(@RequestBody ReservationDto reservationDto) {
+    public ResponseEntity<ReservationResponse> makeReservation(@RequestBody ReservationDto reservationDto) {
         return ResponseEntity.ok().body(restaurantService.makeReservation(reservationDto.getRestaurantId(), reservationDto.getStartTime(), reservationDto.getEndTime(), reservationDto.getNumGuests()));
     }
 

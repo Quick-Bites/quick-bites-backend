@@ -10,6 +10,7 @@ import tr.edu.ku.quickbites.entity.User;
 import tr.edu.ku.quickbites.repository.ReservationRepository;
 import tr.edu.ku.quickbites.repository.RestaurantRepository;
 import tr.edu.ku.quickbites.repository.UserRepository;
+import tr.edu.ku.quickbites.response.ReservationResponse;
 import tr.edu.ku.quickbites.util.AuthenticatedUser;
 
 import java.time.LocalDateTime;
@@ -36,16 +37,16 @@ public class RestaurantService {
         return restaurantRepository.findRestaurantsByNameAndLocatedCity(restaurantName, locatedCity);
     }
 
-    public boolean makeReservation(Long restaurantId, LocalDateTime startTime, LocalDateTime endTime, int numGuests) {
+    public ReservationResponse makeReservation(Long restaurantId, LocalDateTime startTime, LocalDateTime endTime, int numGuests) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
         User user = new AuthenticatedUser(userRepository).getAuthenticatedUser();
 
         if (restaurant.getReservations().size() + 1 > restaurant.getCapacity()) {
-            return false;
+            return ReservationResponse.builder().isSuccessful(false).build();
         }
 
         if (numGuests > 4) {
-            return false;
+            return ReservationResponse.builder().isSuccessful(true).build();
         }
 
         int activeReservations = (int) restaurant.getReservations().stream()
@@ -53,7 +54,7 @@ public class RestaurantService {
                 .count();
 
         if (activeReservations > restaurant.getCapacity()) {
-            return false;
+            return ReservationResponse.builder().isSuccessful(false).build();
         }
 
         Reservation reservation = new Reservation(null, startTime, endTime, numGuests);
@@ -63,7 +64,7 @@ public class RestaurantService {
 
         reservationRepository.save(reservation);
 
-        return true;
+        return ReservationResponse.builder().isSuccessful(true).build();
     }
 
     public List<Restaurant> findRestaurantByCategoryAndLocatedCity(String category, String locatedCity) {
