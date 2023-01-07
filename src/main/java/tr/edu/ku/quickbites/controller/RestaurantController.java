@@ -43,7 +43,7 @@ public class RestaurantController {
 
     @PostMapping("/restaurant/make-reservation")
     public ResponseEntity<?> makeReservation(@RequestBody ReservationDto reservationDto) {
-        return ResponseEntity.ok().body(restaurantService.makeReservation(reservationDto.getUsername(), reservationDto.getRestaurantId(), reservationDto.getStartTime(), reservationDto.getEndTime(), reservationDto.getNumGuests()));
+        return ResponseEntity.ok().body(restaurantService.makeReservation(reservationDto.getRestaurantId(), reservationDto.getStartTime(), reservationDto.getEndTime(), reservationDto.getNumGuests()));
     }
 
     @GetMapping("/restaurant/category/{category}/city/{city}")

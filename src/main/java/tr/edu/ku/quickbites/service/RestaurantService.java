@@ -10,6 +10,7 @@ import tr.edu.ku.quickbites.entity.User;
 import tr.edu.ku.quickbites.repository.ReservationRepository;
 import tr.edu.ku.quickbites.repository.RestaurantRepository;
 import tr.edu.ku.quickbites.repository.UserRepository;
+import tr.edu.ku.quickbites.util.AuthenticatedUser;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -35,10 +36,9 @@ public class RestaurantService {
         return restaurantRepository.findRestaurantsByNameAndLocatedCity(restaurantName, locatedCity);
     }
 
-    public boolean makeReservation(String username, Long restaurantId, LocalDateTime startTime, LocalDateTime endTime, int numGuests) {
-
+    public boolean makeReservation(Long restaurantId, LocalDateTime startTime, LocalDateTime endTime, int numGuests) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
-        User user = userRepository.findByUsername(username);
+        User user = new AuthenticatedUser(userRepository).getAuthenticatedUser();
 
         if (restaurant.getReservations().size() + 1 > restaurant.getCapacity()) {
             return false;
