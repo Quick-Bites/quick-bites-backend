@@ -51,4 +51,9 @@ public class RestaurantController {
     public ResponseEntity<List<Restaurant>> getRestaurantsByCategoryAndCity(@PathVariable String category, @PathVariable String city) {
         return ResponseEntity.ok().body(restaurantService.findRestaurantByCategoryAndLocatedCity(category, city));
     }
+
+    @GetMapping("/restaurant/from/reservation/id/{reservation-id}")
+    public ResponseEntity<Restaurant> getRestaurantWithReservationId(@PathVariable("reservation-id") String reservationId) throws Exception {
+        return ResponseEntity.ok().body(restaurantService.getRestaurantWithReservationId(Long.parseLong(reservationId)));
+    }
 }

@@ -71,4 +71,8 @@ public class RestaurantService {
         return restaurantRepository.findRestaurantsByCategoryAndLocatedCity(category, locatedCity);
     }
 
+    public Restaurant getRestaurantWithReservationId(Long reservationId) {
+        return restaurantRepository.getById(reservationRepository.getRestaurantIdFromReservationId(reservationId));
+    }
+
 }
