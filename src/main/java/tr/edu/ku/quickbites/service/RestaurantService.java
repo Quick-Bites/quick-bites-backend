@@ -46,7 +46,7 @@ public class RestaurantService {
         }
 
         if (numGuests > 4) {
-            return ReservationResponse.builder().isSuccessful(true).build();
+            return ReservationResponse.builder().isSuccessful(false).build();
         }
 
         int activeReservations = (int) restaurant.getReservations().stream()
