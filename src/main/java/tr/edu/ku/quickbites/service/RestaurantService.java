@@ -2,6 +2,7 @@ package tr.edu.ku.quickbites.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tr.edu.ku.quickbites.entity.Reservation;
@@ -14,6 +15,7 @@ import tr.edu.ku.quickbites.response.ReservationResponse;
 import tr.edu.ku.quickbites.util.AuthenticatedUser;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -72,7 +74,18 @@ public class RestaurantService {
     }
 
     public Restaurant getRestaurantWithReservationId(Long reservationId) {
-        return restaurantRepository.getById(reservationRepository.getRestaurantIdFromReservationId(reservationId));
+        return restaurantRepository.findRestaurantById(reservationRepository.getRestaurantIdFromReservationId(reservationId));
+    }
+
+    public List<Restaurant> getRestaurantsFromUserReservation() {
+        User user = new AuthenticatedUser(userRepository).getAuthenticatedUser();
+        List<Restaurant> restaurants = new ArrayList<>();
+
+        for (Reservation r: user.getReservations()) {
+            restaurants.add(restaurantRepository.findRestaurantById(reservationRepository.getRestaurantIdFromReservationId(r.getId())));
+        }
+
+        return restaurants;
     }
 
 }
