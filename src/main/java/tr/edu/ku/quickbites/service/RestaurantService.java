@@ -2,6 +2,7 @@ package tr.edu.ku.quickbites.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tr.edu.ku.quickbites.entity.Reservation;
@@ -10,6 +11,7 @@ import tr.edu.ku.quickbites.entity.User;
 import tr.edu.ku.quickbites.repository.ReservationRepository;
 import tr.edu.ku.quickbites.repository.RestaurantRepository;
 import tr.edu.ku.quickbites.repository.UserRepository;
+import tr.edu.ku.quickbites.response.CategoryResponse;
 import tr.edu.ku.quickbites.response.ReservationResponse;
 import tr.edu.ku.quickbites.util.AuthenticatedUser;
 
@@ -89,6 +91,46 @@ public class RestaurantService {
         }
 
         return restaurants;
+    }
+
+    public List<CategoryResponse> getCategories() {
+        return List.of(
+                CategoryResponse.builder()
+                        .name("All")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Kebap")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Burger")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Pizza")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Sushi")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Salad")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Seafood")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Pasta")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Steak")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Rice Bowl")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Soup")
+                        .build(),
+                CategoryResponse.builder()
+                        .name("Dessert")
+                        .build());
     }
 
 }

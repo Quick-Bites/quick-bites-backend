@@ -72,6 +72,30 @@ public class QuickbitesApplication {
             restaurantService.saveRestaurant(new Restaurant(null, "Pizza Pit", "Ankara", "Citadel 30", "555098765", "Pizza", "2.0", 340, new ArrayList<>()));
             restaurantService.saveRestaurant(new Restaurant(null, "Burger Bonanza", "Ankara", "Anitkabir 33", "555198765", "Hamburger", "1.9", 350, new ArrayList<>()));
             restaurantService.saveRestaurant(new Restaurant(null, "Sushi Stop", "Istanbul", "Grand Bazaar 32", "555298765", "Sushi", "1.8", 360, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Can Kebap", "Istanbul", "Taksim Square 19", "555198765", "Kebap", "4.5", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Salad Spot", "Istanbul", "Bosphorus Bridge 20", "555298765", "Salad", "4.2", 40, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Seafood Sensation", "Istanbul", "Galata Tower 21", "555398765", "Seafood", "4.8", 60, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Pastarie", "Istanbul", "Taksim Square 22", "555498765", "Pasta", "4.6", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Steaker", "Istanbul", "Bosphorus Bridge 23", "555598765", "Steak", "4.9", 70, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Bowler", "Istanbul", "Galata Tower 24", "555698765", "Rice Bowl", "4.7", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Soupo", "Istanbul", "Taksim Square 25", "555798765", "Soup", "4.4", 30, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Kaan Sutlac", "Istanbul", "Bosphorus Bridge 26", "555898765", "Dessert", "4.9", 40, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Kebap Kastle", "Izmir", "Cultural Park 27", "555987456", "Kebap", "4.5", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Salad?", "Izmir", "Clock Tower 28", "555098765", "Salad", "4.2", 40, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Seafood Sanctuary", "Izmir", "Aga Mosque 29", "555198765", "Seafood", "4.8", 60, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Pasta Paradise", "Izmir", "Cultural Park 30", "555298765", "Pasta", "4.6", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Roz Steaks", "Izmir", "Clock Tower 31", "555398765", "Steak", "4.9", 70, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Get a Bowl!", "Izmir", "Aga Mosque 32", "555498765", "Rice Bowl", "4.7", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Soup Spot", "Izmir", "Cultural Park 33", "555598765", "Soup", "4.4", 30, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Ali Baklava", "Izmir", "Clock Tower 34", "555698765", "Dessert", "4.9", 40, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Kebap Kitchen", "Ankara", "Roman Baths 35", "555798765", "Kebap", "4.5", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Salad Spot", "Ankara", "Citadel 36", "555898765", "Salad", "4.2", 40, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Seafood Sensation", "Ankara", "Anitkabir 37", "555987456", "Seafood", "4.8", 60, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Pasta Place", "Ankara", "Roman Baths 38", "555098765", "Pasta", "4.6", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Nussrmet Steakhouse", "Ankara", "Citadel 39", "555198765", "Steak", "4.9", 70, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Bigger Bowls", "Ankara", "Anitkabir 40", "555298765", "Rice Bowl", "4.7", 50, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Soup Spot", "Ankara", "Roman Baths 41", "555398765", "Soup", "4.4", 30, new ArrayList<>()));
+            restaurantService.saveRestaurant(new Restaurant(null, "Soguk Baklava Fabrikasi", "Ankara", "Citadel 42", "555498765", "Dessert", "4.9", 40, new ArrayList<>()));
         };
     }
 }
