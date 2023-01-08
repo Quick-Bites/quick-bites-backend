@@ -18,6 +18,7 @@ import tr.edu.ku.quickbites.entity.Role;
 import tr.edu.ku.quickbites.entity.User;
 import tr.edu.ku.quickbites.repository.RoleRepository;
 import tr.edu.ku.quickbites.repository.UserRepository;
+import tr.edu.ku.quickbites.util.AuthenticatedUser;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -77,8 +78,11 @@ public class UserService implements UserDetailsService {
     }
 
     public User getUser(String username) {
-        log.info("Getting user {}.", username);
-        return userRepository.findByUsername(username);
+        return new AuthenticatedUser(userRepository).getAuthenticatedUser();
+    }
+
+    public User getAuthUser() {
+        return new AuthenticatedUser(userRepository).getAuthenticatedUser();
     }
 
     public List<User> getUsers() {

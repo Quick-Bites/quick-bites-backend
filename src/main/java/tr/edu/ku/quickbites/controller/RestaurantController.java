@@ -22,6 +22,9 @@ public class RestaurantController {
     public ResponseEntity<List<CategoryResponse>> getCategories() {
         return ResponseEntity.ok().body(List.of(
                 CategoryResponse.builder()
+                        .name("All")
+                        .build(),
+                CategoryResponse.builder()
                         .name("Burger")
                         .build(),
                 CategoryResponse.builder()

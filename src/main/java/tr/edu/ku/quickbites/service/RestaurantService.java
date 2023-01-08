@@ -2,7 +2,6 @@ package tr.edu.ku.quickbites.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tr.edu.ku.quickbites.entity.Reservation;
@@ -70,6 +69,10 @@ public class RestaurantService {
     }
 
     public List<Restaurant> findRestaurantByCategoryAndLocatedCity(String category, String locatedCity) {
+        if ("all".equalsIgnoreCase(category)) {
+            return restaurantRepository.findRestaurantsByLocatedCity(locatedCity);
+        }
+
         return restaurantRepository.findRestaurantsByCategoryAndLocatedCity(category, locatedCity);
     }
 
@@ -81,7 +84,7 @@ public class RestaurantService {
         User user = new AuthenticatedUser(userRepository).getAuthenticatedUser();
         List<Restaurant> restaurants = new ArrayList<>();
 
-        for (Reservation r: user.getReservations()) {
+        for (Reservation r : user.getReservations()) {
             restaurants.add(restaurantRepository.findRestaurantById(reservationRepository.getRestaurantIdFromReservationId(r.getId())));
         }
 
